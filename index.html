@@ -85,7 +85,7 @@ function start(){
   render();sound('start');
 }
 function openQuiz(i){stage=i;q=0;if(!state.name){alert('กรุณาใส่ชื่อก่อน');return}$('quiz').classList.remove('hidden');showQuestion();$('quiz').scrollIntoView({behavior:'smooth'})}
-function showQuestion(){var it=questions[stage][q],o=it[1].slice();$('qmeta').textContent=topics[stage][1]+' • ข้อ '+(q+1)+'/5';$('qtitle').textContent='ภารกิจด่าน '+(stage+1);$('qtext').textContent=it[0];$('feedback').textContent='';$('options').innerHTML='';o.forEach(function(v,i){var b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+v;b.onclick=function(){answer(i===0)};$('options').appendChild(b)})}
+function showQuestion(){var it=questions[stage][q],o=it[1].map(function(v,i){return {v:v,ok:i===0}});for(var i=o.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=o[i];o[i]=o[j];o[j]=t}$('qmeta').textContent=topics[stage][1]+' • ข้อ '+(q+1)+'/5';$('qtitle').textContent='ภารกิจด่าน '+(stage+1);$('qtext').textContent=it[0];$('feedback').textContent='';$('options').innerHTML='';o.forEach(function(item,i){var b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+item.v;b.onclick=function(){answer(item.ok)};$('options').appendChild(b)})}
 function answer(ok){
   document.querySelectorAll('.option').forEach(function(b){b.disabled=true});
   if(ok){
