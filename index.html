@@ -57,43 +57,40 @@ $('magicGrid').innerHTML=h}
 function drawMap(){var map=$('map');map.querySelectorAll('.node').forEach(function(n){n.remove()});topics.forEach(function(t,i){var b=document.createElement('button');b.className='node n'+i+(i>0&&state.done.indexOf(i-1)<0?' lock':'');b.innerHTML=t[0]+'<span>ด่าน '+(i+1)+'</span>';if(i===0||state.done.indexOf(i-1)>=0){b.onclick=function(){openQuiz(i)}}else{b.onclick=function(){alert('🔒 ต้องผ่านด่าน '+i+' ก่อน จึงจะปลดล็อกด่านนี้')}}map.appendChild(b)});positionPlayer()}
 function positionPlayer(){var p=$('player'),i=Math.min(state.done.length,14);var b=document.querySelector('.n'+i);if(!b)return;p.style.left=(b.offsetLeft+16)+'px';p.style.top=(b.offsetTop-5)+'px'}
 function rank(){var a=[{n:state.name||'คุณ',s:state.score},{n:'นักภาษา ก.',s:120},{n:'นักภาษา ข.',s:90},{n:'นักภาษา ค.',s:60}].sort(function(x,y){return y.s-x.s});$('ranking').innerHTML=a.map(function(x,i){return '<div class="rankrow"><span>🏆 '+(i+1)+'. '+x.n+'</span><b>'+x.s+' XP</b></div>'}).join('')}
-function start(){var n=$('name').value.trim();if(!n){alert('กรุณาพิมพ์ชื่อก่อนเริ่มเกม');return}state.name=n;$('hello').textContent='🎮 ยินดีต้อนรับ '+n+'!';save();render();sound('start')}
+function start(){var n=$('name').value.trim();if(!n){alert('กรุณาพิมพ์ชื่อก่อนเริ่มเกม');return}if(state.life<=0){state.score=0;state.coins=0;state.life=5;state.done=[];state.ans={}}state.name=n;$('hello').textContent='🎮 ยินดีต้อนรับ '+n+'!';$('gameOver').classList.add('hidden');save();render();sound('start')}
 function openQuiz(i){stage=i;q=0;if(!state.name){alert('กรุณาใส่ชื่อก่อน');return}$('quiz').classList.remove('hidden');showQuestion();$('quiz').scrollIntoView({behavior:'smooth'})}
 function showQuestion(){var it=questions[stage][q],o=it[1].slice();$('qmeta').textContent=topics[stage][1]+' • ข้อ '+(q+1)+'/5';$('qtitle').textContent='ภารกิจด่าน '+(stage+1);$('qtext').textContent=it[0];$('feedback').textContent='';$('options').innerHTML='';o.forEach(function(v,i){var b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+v;b.onclick=function(){answer(i===0)};$('options').appendChild(b)})}
 function answer(ok){
-document.querySelectorAll('.option').forEach(function(b){b.disabled=true});
-var key=stage+'-'+q;
-if(ok){
-  if(!state.ans[key]){state.ans[key]=1;state.score+=10;state.coins+=5}
-  $('feedback').innerHTML='<span class="good">✨ ถูกต้อง! +10 XP +5 🪙 ไปข้อต่อไปได้เลย!</span>';
-  sound('good');sparkle();
-  $('quiz').classList.add('pop');setTimeout(function(){$('quiz').classList.remove('pop')},500);
-}else{
-  state.score=Math.max(0,state.score-5);
-  state.life=Math.max(0,state.life-1);
-  $('life').classList.add('heartLost');setTimeout(function(){$('life').classList.remove('heartLost')},450);
-  $('feedback').innerHTML='<span class="bad">❌ ยังไม่ถูก แต่ไปต่อได้! -5 XP และ -1 ❤️</span>';
-  sound('bad');
-  $('quiz').classList.add('shake');setTimeout(function(){$('quiz').classList.remove('shake')},400);
-}
-save();render();
-if(state.life<=0){
-  setTimeout(function(){showGameOver()},500);
-  return;
-}
-setTimeout(function(){
-  if(q===4){
+  document.querySelectorAll('.option').forEach(function(b){b.disabled=true});
+  var key=stage+'-'+q;
+  if(ok){
+    if(!state.ans[key]){state.ans[key]=1;state.score+=10;state.coins+=5}
+    $('feedback').innerHTML='<span class="good">✨ ถูกต้อง! +10 XP +5 🪙 ไปข้อต่อไป!</span>';
+    sound('good');sparkle();
+  }else{
+    state.score=Math.max(0,state.score-5);
+    state.life=Math.max(0,state.life-1);
+    $('life').textContent=state.life;
+    $('feedback').innerHTML='<span class="bad">❌ ตอบผิด แต่ไปต่อได้! -5 XP และ -1 ❤️</span>';
+    sound('bad');
+    $('quiz').classList.add('shake');
+    setTimeout(function(){$('quiz').classList.remove('shake')},400);
+  }
+  save();render();
+  if(state.life<=0){setTimeout(showGameOver,600);return}
+  setTimeout(function(){
+    if(q<4){q++;showQuestion();return}
     if(state.done.indexOf(stage)<0){state.done.push(stage);state.coins+=20}
     save();render();
     $('qtext').textContent=stage===14?'👑 ชนะบอสใหญ่! พิชิตครบ 15 ด่านแล้ว!':'🎉 ผ่านด่าน '+(stage+1)+'! ด่านถัดไปปลดล็อกแล้ว';
     $('options').innerHTML='';
     $('feedback').innerHTML='<span class="good">🎉 จบด่านแล้ว! ด่านถัดไปปลดล็อก</span>';
     sound('win');sparkle();
-  }else{q++;showQuestion()}
-},750)}
+  },650);
+}
 function showGameOver(){$('finalScore').textContent=state.score;$('gameOver').classList.remove('hidden');$('quiz').classList.add('hidden');save()}
 function restartGame(){state.score=0;state.coins=0;state.life=5;state.done=[];state.ans={};$('gameOver').classList.add('hidden');save();render();tab('world');$('hello').textContent='🎮 เริ่มการผจญภัยใหม่แล้ว!';}
-function tab(id){document.querySelectorAll('.page').forEach(function(p){p.classList.add('hidden')});$(id).classList.remove('hidden');document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});document.querySelector('[data-open="'+id+'"]').classList.add('active');if(id==='world')setTimeout(positionPlayer,50)}
+function tab(id){var page=$(id);if(!page)return;document.querySelectorAll('.page').forEach(function(p){p.classList.add('hidden')});page.classList.remove('hidden');document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});var button=document.querySelector('[data-open="'+id+'"]');if(button)button.classList.add('active');if(id==='magic')renderMagic();if(id==='world')setTimeout(positionPlayer,50)}
 function sound(type){try{var C=window.AudioContext||window.webkitAudioContext;if(!C)return;var c=new C(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);var f=type==='good'?660:type==='bad'?180:type==='win'?880:520;o.frequency.value=f;o.type=type==='bad'?'sawtooth':'sine';g.gain.setValueAtTime(.001,c.currentTime);g.gain.exponentialRampToValueAtTime(.12,c.currentTime+.02);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);o.start();o.stop(c.currentTime+.24)}catch(e){}}
 function sparkle(){var box=$('celebrate');for(var i=0;i<12;i++){var s=document.createElement('span');s.className='particle';s.textContent=['✨','⭐','🪙','🎉'][Math.floor(Math.random()*4)];s.style.left=(20+Math.random()*60)+'%';s.style.top=(15+Math.random()*20)+'%';box.appendChild(s);setTimeout(function(){box.innerHTML=''},1300)}}
 $('start').onclick=start;$('restartGame').onclick=restartGame;$('name').onkeydown=function(e){if(e.key==='Enter')start()};document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){tab(b.getAttribute('data-open'))}});$('back').onclick=function(){$('quiz').classList.add('hidden');tab('world')};$('chatForm').onsubmit=function(e){e.preventDefault();var v=$('chatInput').value.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.textContent=(state.name||'ผู้เล่น')+': '+v;$('messages').appendChild(d);$('chatInput').value=''};window.onresize=positionPlayer;load();render();
