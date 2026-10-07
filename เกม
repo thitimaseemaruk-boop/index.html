@@ -1,0 +1,150 @@
+from pathlib import Path
+html = r'''<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>อาณาจักรตารางมหัศจรรย์ — ผจญภัยพยัญชนะไทย</title>
+<style>
+:root{--bg:#08111f;--panel:#101d31;--panel2:#15263d;--text:#f7fbff;--muted:#b7c6d9;--accent:#62e6a5;--danger:#ff6577;--gold:#ffd166;--line:#2a3d56}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif;background:radial-gradient(circle at top,#183153,#08111f 55%);color:var(--text)}
+button,input,textarea{font:inherit} button{cursor:pointer}.wrap{max-width:1200px;margin:auto;padding:18px}.top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.brand{font-size:26px;font-weight:900}.stats{display:flex;gap:8px;flex-wrap:wrap}.pill{background:var(--panel);border:1px solid var(--line);padding:8px 12px;border-radius:999px}.grid{display:grid;grid-template-columns:1.5fr .8fr;gap:16px;margin-top:16px}.card{background:rgba(16,29,49,.94);border:1px solid var(--line);border-radius:20px;padding:16px}.hero{display:flex;justify-content:space-between;gap:16px;align-items:center}.hero h1{margin:0 0 6px}.small{color:var(--muted);font-size:14px}.map{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.zone{min-height:100px;border:1px solid var(--line);border-radius:16px;padding:12px;background:var(--panel2);display:flex;flex-direction:column;justify-content:space-between}.zone.done{outline:2px solid var(--accent)}.zone button,.primary{border:0;border-radius:10px;padding:10px;background:var(--accent);color:#07150f;font-weight:800}.secondary{border:1px solid var(--line);background:#0c1728;color:var(--text);border-radius:10px;padding:9px 12px}.bar{height:9px;background:#0a1422;border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent);width:0}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab{padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#0c1728;color:var(--text)}.tab.active{background:#213b58;border-color:#6e91b9}.lesson{margin-top:12px}.magic{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:12px}.cell{min-height:78px;border:1px solid #41536a;border-radius:7px;padding:5px;background:#f6f4ec;color:#111;position:relative;text-align:center}.cell b{font-size:28px;display:block;line-height:1}.cell span{font-size:12px}.cell .tag{font-size:10px;font-weight:700}.c-mid{background:#ffd0df}.c-high{background:#d7f7d1}.c-low{background:#ffd5a0}.c-single{background:#fff59d}.c-neu{background:#e9eef5}.c-gak{outline:3px solid #ff3e55}.c-kod{outline:3px solid #4bb7ff}.c-kob{outline:3px solid #67d68b}.c-kon{outline:3px solid #ff9c48}.c-kong{outline:3px solid #9b7047}.c-kom{outline:3px solid #ffe14a}.c-koey{outline:3px solid #ff75bd}.c-koew{outline:3px solid #9b67d9}.dot{width:9px;height:9px;border-radius:50%;background:#1db954;display:inline-block}.cross{color:#e33;font-size:18px;font-weight:900}.star{position:absolute;right:3px;top:0;color:#111}.quiz .choice{display:block;width:100%;text-align:left;margin:8px 0;padding:11px;border:1px solid var(--line);border-radius:12px;background:#0c1728;color:var(--text)}.choice:hover{background:#17304c}.choice.correct{border-color:#4de391}.choice.wrong{border-color:#ff6577}.feedback{min-height:25px;margin:8px 0}.chatbox{height:240px;overflow:auto;border:1px solid var(--line);border-radius:12px;padding:8px}.msg{padding:7px 5px;border-bottom:1px solid #24344a}.chatform{display:flex;gap:8px;margin-top:8px}.chatform input{flex:1;background:#0b1626;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px}.rankrow{display:flex;justify-content:space-between;padding:10px;border:1px solid var(--line);border-radius:10px;margin:6px 0}.hide{display:none}.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:grid;place-items:center;padding:16px}.modalbox{max-width:680px;width:100%;background:#102039;border:1px solid #48627f;border-radius:20px;padding:20px}.footer{margin-top:14px;color:var(--muted);font-size:12px}@media(max-width:800px){.grid{grid-template-columns:1fr}.map{grid-template-columns:repeat(2,1fr)}.magic{grid-template-columns:repeat(4,1fr)}}@media(max-width:480px){.magic{grid-template-columns:repeat(3,1fr)}.cell{min-height:70px}.cell b{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <div class="top">
+    <div><div class="brand">🧭 อาณาจักรตารางมหัศจรรย์</div><div class="small">เกมผจญภัยเรียนรู้ภาษาไทย: จากพยัญชนะ → เสียง → มาตราตัวสะกด</div></div>
+    <div class="stats"><span class="pill">⭐ <b id="score">0</b> XP</span><span class="pill">🏅 <b id="level">นักสำรวจ</b></span><span class="pill">❤️ <b id="lives">3</b></span></div>
+  </div>
+
+  <div class="grid">
+    <main>
+      <section class="card hero">
+        <div><h1 id="heroTitle">ยินดีต้อนรับ นักผจญภัย!</h1><div class="small" id="heroText">ผ่านด่านให้ครบเพื่อปลดล็อก “ตารางมหัศจรรย์” และสะสมตราความรู้</div></div>
+        <button class="primary" id="start">เริ่มภารกิจ</button>
+      </section>
+
+      <section class="card" style="margin-top:16px">
+        <div class="tabs">
+          <button class="tab active" data-view="map">🗺️ แผนที่ผจญภัย</button>
+          <button class="tab" data-view="magic">✨ ตารางมหัศจรรย์</button>
+          <button class="tab" data-view="chat">💬 ห้องแลกเปลี่ยน</button>
+          <button class="tab" data-view="rank">🏆 คะแนน</button>
+        </div>
+
+        <div id="mapView" class="lesson">
+          <div class="small">เลือกด่านได้ตามลำดับ ความรู้ใหม่จะถูกปลดล็อกเมื่อทำภารกิจสำเร็จ</div>
+          <div class="map" id="map"></div>
+        </div>
+
+        <div id="magicView" class="lesson hide">
+          <div class="small">ตารางนี้ออกแบบตามแนวคิดจากภาพตัวอย่าง: สีแยกอักษรสามหมู่ เส้นแยกวรรค จุด/กากบาทบอกคำเป็น–คำตาย และกรอบบอกมาตราตัวสะกด</div>
+          <div id="legend" class="small" style="margin-top:8px"></div>
+          <div class="magic" id="magic"></div>
+          <div class="footer">หมายเหตุ: ตารางเป็นสื่อสรุปเพื่อการเรียนรู้ เกมควรใช้ร่วมกับคำอธิบายของครูและแบบฝึกจริง</div>
+        </div>
+
+        <div id="chatView" class="lesson hide">
+          <div class="small">ต้นแบบนี้เป็นห้องสนทนาภายในหน้าเกม ข้อความยังไม่ซิงก์ข้ามเครื่องจนกว่าจะเชื่อมฐานข้อมูลออนไลน์</div>
+          <div class="chatbox" id="chatbox"><div class="msg"><b>ครู:</b> นักเรียนคิดว่า “ก” มีบทบาทอะไรในคำไทยบ้าง?</div></div>
+          <form class="chatform" id="chatForm"><input id="chatInput" maxlength="180" placeholder="พิมพ์ความคิดเห็น..."><button class="primary">ส่ง</button></form>
+        </div>
+
+        <div id="rankView" class="lesson hide">
+          <div class="small">คะแนนตัวอย่างในต้นแบบ</div><div id="rank"></div>
+        </div>
+      </section>
+
+      <section class="card quiz hide" id="quizCard" style="margin-top:16px">
+        <div class="small" id="questType">ภารกิจ</div>
+        <h2 id="questTitle"></h2>
+        <div id="questBody"></div>
+        <div class="feedback" id="feedback"></div>
+        <button class="secondary" id="nextQuest">ข้อต่อไป</button>
+      </section>
+    </main>
+
+    <aside class="card">
+      <h2 style="margin-top:0">📜 สมุดนักผจญภัย</h2>
+      <div class="small">ความคืบหน้า</div><div class="bar"><i id="progress"></i></div>
+      <p><b id="doneCount">0</b> / 10 ด่าน</p>
+      <h3>🏅 ตราที่ได้รับ</h3><div id="badges" class="small">ยังไม่มี — เริ่มภารกิจได้เลย</div>
+      <hr style="border-color:var(--line);margin:16px 0">
+      <h3>🎯 หัวข้อที่เกมสอน</h3>
+      <ol class="small">
+        <li>พยัญชนะไทย + เสียงพยัญชนะ</li>
+        <li>อักษรสามหมู่</li>
+        <li>มาตราตัวสะกด</li>
+        <li>คำเป็น–คำตาย</li>
+        <li>พยัญชนะวรรคและเศษวรรค</li>
+        <li>ฐานที่เกิดของเสียง</li>
+        <li>เสียงพยัญชนะภาษาอังกฤษ</li>
+        <li>ตัวสะกดตรง/ไม่ตรงมาตรา</li>
+        <li>พยัญชนะที่ไม่ใช้เป็นตัวสะกด</li>
+        <li>พยัญชนะที่เลิกใช้ ฃ ฅ</li>
+      </ol>
+    </aside>
+  </div>
+</div>
+
+<div class="modal hide" id="nameModal">
+ <div class="modalbox"><h2>🧑‍🚀 สร้างตัวละคร</h2><p class="small">ชื่อจะใช้แสดงในคะแนนและห้องแลกเปลี่ยนความคิดเห็น</p>
+ <input id="name" maxlength="30" placeholder="ชื่อเล่นของนักเรียน" style="width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:#0b1626;color:white">
+ <button class="primary" id="saveName" style="margin-top:10px">เข้าสู่อาณาจักร</button></div>
+</div>
+
+<script>
+const consonants = [
+ ['ก','k','กลาง','กก','กะ','คำเป็น'],['ข','kh','สูง','กก','กะ','คำตาย'],['ฃ','kh','สูง','—','กะ','เลิกใช้'],['ค','kh','ต่ำคู่','กก','กะ','คำเป็น'],['ฅ','kh','ต่ำคู่','—','กะ','เลิกใช้'],['ฆ','kh','ต่ำคู่','กก','กะ','คำเป็น'],
+ ['ง','ng','ต่ำเดี่ยว','กง','กะ','ตรงมาตรา'],['จ','c/j','กลาง','กด','จะ','คำตาย'],['ฉ','ch','สูง','—','จะ','ห้ามเป็นตัวสะกด'],['ช','ch','ต่ำคู่','กด','จะ','คำเป็น'],['ซ','s','ต่ำคู่','กด','จะ','คำเป็น'],['ฌ','ch','ต่ำคู่','—','จะ','ห้ามเป็นตัวสะกด'],
+ ['ญ','y','ต่ำเดี่ยว','กน','จะ','คำเป็น'],['ฎ','d','กลาง','กด','ฏะ','คำตาย'],['ฏ','t','กลาง','กด','ฏะ','คำตาย'],['ฐ','th','สูง','กด','ฏะ','คำตาย'],['ฑ','th','ต่ำคู่','กด','ฏะ','คำเป็น'],['ฒ','th','ต่ำคู่','กด','ฏะ','คำเป็น'],['ณ','n','ต่ำเดี่ยว','กน','ฏะ','คำเป็น'],
+ ['ด','d','กลาง','กด','ตะ','คำเป็น'],['ต','t','กลาง','กด','ตะ','คำตาย'],['ถ','th','สูง','กด','ตะ','คำตาย'],['ท','th','ต่ำคู่','กด','ตะ','คำเป็น'],['ธ','th','ต่ำคู่','กด','ตะ','คำเป็น'],['น','n','ต่ำเดี่ยว','กน','ตะ','คำเป็น'],
+ ['บ','b','กลาง','กบ','ปะ','คำตาย'],['ป','p','กลาง','กบ','ปะ','คำตาย'],['ผ','ph','สูง','—','ปะ','ห้ามเป็นตัวสะกด'],['ฝ','f','สูง','—','ปะ','ห้ามเป็นตัวสะกด'],['พ','ph','ต่ำคู่','กบ','ปะ','คำเป็น'],['ฟ','f','ต่ำคู่','กบ','ปะ','คำเป็น'],['ภ','ph','ต่ำคู่','กบ','ปะ','คำเป็น'],['ม','m','ต่ำเดี่ยว','กม','ปะ','คำเป็น'],
+ ['ย','y','ต่ำเดี่ยว','เกย','เศษวรรค','ตรงมาตรา'],['ร','r','ต่ำเดี่ยว','—','เศษวรรค','ไม่ตรงมาตรา'],['ล','l','ต่ำเดี่ยว','—','เศษวรรค','ไม่ตรงมาตรา'],['ว','w','ต่ำเดี่ยว','เกอว','เศษวรรค','ตรงมาตรา'],['ศ','s','สูง','—','เศษวรรค','ห้ามเป็นตัวสะกด'],['ษ','s','สูง','—','เศษวรรค','ห้ามเป็นตัวสะกด'],['ส','s','สูง','—','เศษวรรค','ห้ามเป็นตัวสะกด'],['ห','h','สูง','—','เศษวรรค','ห้ามเป็นตัวสะกด'],['ฬ','l','ต่ำเดี่ยว','—','เศษวรรค','ไม่ตรงมาตรา'],['อ','o','กลาง','—','เศษวรรค','ห้ามเป็นตัวสะกด'],['ฮ','h','ต่ำคู่','—','เศษวรรค','ห้ามเป็นตัวสะกด']
+];
+const quests=[
+ {title:'ประตูที่ 1 — นักสำรวจพยัญชนะ',type:'พยัญชนะไทย',q:'ข้อใดเป็นพยัญชนะไทย',o:['ก','A','1','า'],a:0,ex:'ก เป็นพยัญชนะไทย'},
+ {title:'ประตูที่ 2 — เสียงพยัญชนะ',type:'เสียง',q:'“ม” มีเสียงพยัญชนะภาษาอังกฤษใกล้เคียงข้อใด',o:['m','k','t','s'],a:0,ex:'ม = m'},
+ {title:'ประตูที่ 3 — สามหมู่',type:'อักษรสามหมู่',q:'“ข” จัดเป็นอักษรหมู่ใด',o:['อักษรกลาง','อักษรสูง','อักษรต่ำคู่','อักษรต่ำเดี่ยว'],a:1,ex:'ข เป็นอักษรสูง'},
+ {title:'ประตูที่ 4 — มาตราตัวสะกด',type:'มาตรา',q:'คำว่า “ลม” ลงท้ายด้วยมาตราใด',o:['กก','กน','กม','กง'],a:2,ex:'ม เป็นตัวสะกดแม่กม'},
+ {title:'ประตูที่ 5 — คำเป็นคำตาย',type:'คำเป็น–คำตาย',q:'ข้อใดเป็นคำเป็น',o:['รัก','กิน','นก','ปิด'],a:1,ex:'กิน เป็นคำเป็น'},
+ {title:'ประตูที่ 6 — วรรค',type:'พยัญชนะวรรค',q:'“ก ข ค ฆ” อยู่ในวรรคใด',o:['วรรคกะ','วรรคจะ','วรรคตะ','วรรคปะ'],a:0,ex:'อยู่ในวรรคกะ'},
+ {title:'ประตูที่ 7 — ฐานเสียง',type:'ฐานที่เกิด',q:'เสียง ก ข ค ฆ เกิดที่ฐานใด',o:['ริมฝีปาก','เพดานอ่อน','ปุ่มเหงือก','ฟัน'],a:1,ex:'กลุ่ม ก ข ค ฆ จัดอยู่ฐานเพดานอ่อน'},
+ {title:'ประตูที่ 8 — ตัวสะกด',type:'ตรง/ไม่ตรงมาตรา',q:'ข้อใดเป็นตัวสะกดตรงมาตรา “แม่กง”',o:['ง','ก','ด','บ'],a:0,ex:'ง เป็นตัวสะกดตรงมาตราแม่กง'},
+ {title:'ประตูที่ 9 — ห้ามสะกด',type:'ตัวสะกด',q:'ข้อใดไม่สามารถใช้เป็นตัวสะกดตามกติกาที่เกมกำหนด',o:['ง','ม','ห','ย'],a:2,ex:'ห ไม่ใช้เป็นตัวสะกด'},
+ {title:'ประตูที่ 10 — นักพิทักษ์อักษร',type:'ประวัติ',q:'พยัญชนะใดมีเครื่องหมายดาวในตาราง เพราะเลิกใช้',o:['ฃ และ ฅ','ก และ ข','ง และ ม','ย และ ว'],a:0,ex:'ฃ และ ฅ เป็นอักษรที่เลิกใช้'}
+];
+let state={name:'',score:0,lives:3,done:[],q:0,badges:[]};
+const $=id=>document.getElementById(id);
+function save(){try{sessionStorage.setItem('thaiAdventure',JSON.stringify(state))}catch(e){}}
+function load(){try{const x=JSON.parse(sessionStorage.getItem('thaiAdventure')||'null');if(x)state={...state,...x}}catch(e){}}
+function render(){
+ $('score').textContent=state.score;$('lives').textContent=state.lives;$('doneCount').textContent=state.done.length;$('progress').style.width=(state.done.length*10)+'%';
+ const lv=state.score>=90?'จอมปราชญ์':state.score>=60?'ผู้พิทักษ์อักษร':state.score>=30?'นักเรียนรู้':'นักสำรวจ';$('level').textContent=lv;
+ $('heroTitle').textContent=state.name?`ยินดีต้อนรับ ${state.name}!`:'ยินดีต้อนรับ นักผจญภัย!';
+ $('badges').textContent=state.badges.length?state.badges.join(' · '):'ยังไม่มี — เริ่มภารกิจได้เลย';
+ renderMap();renderRank();renderMagic();
+}
+function renderMap(){const m=$('map');m.innerHTML='';quests.forEach((q,i)=>{const d=document.createElement('div');d.className='zone '+(state.done.includes(i)?'done':'');d.innerHTML=`<div><b>${i+1}. ${q.type}</b><div class="small">${q.title.split('—')[1]||''}</div></div><button>${state.done.includes(i)?'✓ ทบทวน':'เข้าสู่ด่าน'}</button>`;d.querySelector('button').onclick=()=>startQuest(i);m.appendChild(d)})}
+function renderRank(){const arr=[{n:state.name||'คุณ',s:state.score},{n:'ผู้พิทักษ์ ก.',s:80},{n:'นักสำรวจ ข.',s:70},{n:'นักรบ ค.',s:50}].sort((a,b)=>b.s-a.s);$('rank').innerHTML=arr.map((x,i)=>`<div class="rankrow"><span>🏆 ${i+1}. ${escape(x.n)}</span><b>${x.s} XP</b></div>`).join('')}
+function renderMagic(){
+ const m=$('magic');m.innerHTML='';$('legend').textContent='ชมพู=กลาง | เขียว=สูง | ส้ม=ต่ำคู่ | เหลือง=ต่ำเดี่ยว | จุดเขียว=คำเป็น | ✕=คำตาย | ★=ฃ ฅ เลิกใช้ | กรอบสี=มาตราตัวสะกด';
+ const groups={กลาง:'c-mid','สูง':'c-high','ต่ำคู่':'c-low','ต่ำเดี่ยว':'c-single'};
+ consonants.forEach((x,i)=>{const [ch,en,cls,finals,group,note]=x;const c=document.createElement('div');c.className='cell '+groups[cls];let extra='';if(note==='คำเป็น')extra+='<span class="dot"></span>';if(note==='คำตาย')extra+='<span class="cross">✕</span>';if(ch==='ฃ'||ch==='ฅ')extra+='<span class="star">★</span>';let fc='';if(finals==='กก')fc='c-gak';if(finals==='กด')fc='c-kod';if(finals==='กบ')fc='c-kob';if(finals==='กน')fc='c-kon';if(finals==='กง')fc='c-kong';if(finals==='กม')fc='c-kom';if(finals==='เกย')fc='c-koey';if(finals==='เกอว')fc='c-koew';c.className+=' '+fc;c.innerHTML=`${extra}<b>${ch}</b><span>${en}</span><span class="tag">${cls}</span><span class="tag">${finals==='—'?'':finals}</span>`;c.title=`${ch} • ${cls} • ${finals} • ${group} • ${note}`;m.appendChild(c)})
+}
+function startQuest(i){if(!state.name){$('nameModal').classList.remove('hide');return}state.q=i;$('quizCard').classList.remove('hide');$('questType').textContent=quests[i].type;$('questTitle').textContent=quests[i].title;const q=quests[i];$('questBody').innerHTML=`<p>${q.q}</p>`+q.o.map((x,j)=>`<button class="choice" data-i="${j}">${String.fromCharCode(65+j)}. ${x}</button>`).join('');$('feedback').textContent='';$('nextQuest').textContent=state.done.includes(i)?'ปิดภารกิจ':'ตรวจคำตอบ';document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>check(+b.dataset.i));$('quizCard').scrollIntoView({behavior:'smooth',block:'center'})}
+function check(i){const q=quests[state.q];document.querySelectorAll('.choice').forEach(b=>b.disabled=true);if(i===q.a){$('feedback').innerHTML='✅ <b>ถูกต้อง!</b> +10 XP — '+q.ex;if(!state.done.includes(state.q)){state.score+=10;state.done.push(state.q);state.badges.push(['🔤','🔊','🎨','🎯','🟢','🧩','🗣️','🛡️','🚫','⭐'][state.q]);} }else{$('feedback').innerHTML='❌ ยังไม่ถูก — '+q.ex;state.lives=Math.max(0,state.lives-1)}render();save();$('nextQuest').textContent='กลับแผนที่'}
+$('nextQuest').onclick=()=>{$('quizCard').classList.add('hide');document.querySelector('[data-view="map"]').click()}
+function escape(s){return String(s).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]))}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');['map','magic','chat','rank'].forEach(v=>$(v+'View').classList.toggle('hide',v!==t.dataset.view))});
+$('start').onclick=()=>{$('nameModal').classList.remove('hide');$('name').focus()};
+$('saveName').onclick=()=>{const n=$('name').value.trim();if(!n)return;state.name=n;$('nameModal').classList.add('hide');save();render();startQuest(0)};
+$('chatForm').onsubmit=e=>{e.preventDefault();const v=$('chatInput').value.trim();if(!v)return;const d=document.createElement('div');d.className='msg';d.innerHTML='<b>'+escape(state.name||'นักเรียน')+':</b> '+escape(v);$('chatbox').appendChild(d);$('chatInput').value='';$('chatbox').scrollTop=$('chatbox').scrollHeight};
+load();render();
+</script>
+</body>
+</html>'''
+path=Path('/mnt/data/thai_magic_adventure.html')
+path.write_text(html,encoding='utf-8')
+str(path), len(html)
