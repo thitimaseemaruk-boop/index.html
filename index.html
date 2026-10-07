@@ -1,144 +1,49 @@
-<!doctype html>
-<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>อาณาจักรตารางมหัศจรรย์ | เกมภาษาไทย</title>
-<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif;color:#263238;background:linear-gradient(180deg,#fff5c9,#e6f8ff 48%,#f4eaff)}header{background:linear-gradient(135deg,#ff5f7e,#ffb347 45%,#6657e8);color:#fff;padding:22px;text-align:center;position:relative;overflow:hidden}.hero svg{max-width:100%;filter:drop-shadow(0 8px 7px #0002)}.hero h1{margin:2px 0;font-size:clamp(28px,5vw,46px);text-shadow:0 3px 0 #0002}.hero p{font-weight:800}.wrap{max-width:1150px;margin:auto;padding:18px}.card{background:#fff;border-radius:24px;padding:18px;margin-bottom:16px;box-shadow:0 12px 30px #29364a18;border:2px solid #fff}.stats{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:9px 14px;border-radius:999px;background:#fff1a8;font-weight:900;border:2px solid #ffd34d}.pill:nth-child(2){background:#ffdce5;border-color:#ff91a9}.pill:nth-child(3){background:#e3ddff;border-color:#a79cff}button{font:inherit}.btn{border:0;border-radius:14px;padding:11px 16px;background:linear-gradient(135deg,#6657e8,#8a5cf6);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 4px 0 #493db7}.btn.secondary{background:#edf0f5;color:#343943;box-shadow:0 4px 0 #c9cdd5}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{border:2px solid #e1e4ea;padding:9px 13px;border-radius:12px;background:white;cursor:pointer;font-weight:800}.tab.active{background:#fff0b5;border-color:#ffc83d}.hidden{display:none!important}.grid{display:grid;grid-template-columns:1.7fr .75fr;gap:16px}.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.zone{position:relative;overflow:hidden;padding:16px;border:2px solid #e4e7ef;border-radius:20px;background:linear-gradient(145deg,#fff,#f6f7ff);min-height:180px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 7px 16px #0000000b}.zone:before{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-25px;top:-25px;background:#ffd86b55}.zone:nth-child(2n):before{background:#78ddff55}.zone:nth-child(3n):before{background:#b99cff55}.zone.done{border-color:#43c879;background:#f0fff6}.zone h3{font-size:17px;margin:4px 0}.zone .emoji{font-size:38px}.small{font-size:13px;color:#687080}.difficulty{display:inline-block;margin-top:7px;padding:4px 9px;border-radius:999px;background:#ffe5a7;font-size:11px;font-weight:900}.quiz{background:#fffdf4;border:2px solid #e1d8ff;border-radius:20px;padding:18px}.option{display:block;width:100%;text-align:left;margin:9px 0;padding:14px;border:2px solid #e1e4ea;border-radius:14px;background:#fff;cursor:pointer;font-weight:700}.option:hover{border-color:#7164e8;background:#faf8ff}.option:disabled{cursor:default}.good{color:#118a49;font-weight:900}.bad{color:#c62828;font-weight:900}.magic{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}.cell{position:relative;text-align:center;padding:8px 3px;border:2px solid #bbb;border-radius:10px;min-height:82px}.cell b{display:block;font-size:29px}.cell small{display:block;font-size:10px}.mid{background:#ffc6dd}.high{background:#bff0c6}.lowpair{background:#ffc986}.lowone{background:#fff078}.special{background:#eee}.mark{position:absolute;right:3px;top:1px;font-size:15px}.gak{outline:3px solid #e84b61}.kod{outline:3px solid #46a7e8}.kob{outline:3px solid #45be70}.kon{outline:3px solid #ef9635}.kong{outline:3px solid #99663e}.kom{outline:3px solid #d8bd20}.koey{outline:3px solid #dc5a9d}.koew{outline:3px solid #805cc0}.chat{height:250px;overflow:auto;border:2px solid #e5e7ee;border-radius:14px;padding:8px;background:#fbfcff}.msg{padding:9px;border-bottom:1px solid #eee}.chatform{display:flex;gap:8px;margin-top:9px}.chatform input,.namebox input{flex:1;padding:12px;border:2px solid #d9dce5;border-radius:12px;font:inherit}.rankrow{display:flex;justify-content:space-between;padding:12px;border:2px solid #e8e8ef;border-radius:12px;margin:7px 0}.progress{height:13px;background:#eceef3;border-radius:20px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,#ffcf4a,#ff6f91,#7164e8);width:0;transition:.5s}@media(max-width:850px){.grid{grid-template-columns:1fr}.zones{grid-template-columns:repeat(2,1fr)}.magic{grid-template-columns:repeat(5,1fr)}}@media(max-width:560px){.zones{grid-template-columns:1fr}.magic{grid-template-columns:repeat(4,1fr)}} </style></head>
-<body>
-<header><div class="hero"><svg width="420" height="145" viewBox="0 0 420 145"><path d="M40 110V68l35-28 35 28v42z" fill="#fff" stroke="#5b42d8" stroke-width="6"/><path d="M67 110V82h16v28" fill="#ffd166"/><rect x="143" y="35" width="118" height="78" rx="15" fill="#fff" stroke="#5b42d8" stroke-width="6"/><text x="202" y="92" text-anchor="middle" font-size="54" font-weight="900" fill="#ff5f7e">ก ข</text><path d="M300 112Q320 45 340 112" fill="#7de7ff" stroke="#1687c9" stroke-width="6"/><circle cx="320" cy="48" r="12" fill="#ffd166"/><circle cx="375" cy="70" r="29" fill="#9cf6b2"/><text x="375" y="80" text-anchor="middle" font-size="31">★</text></svg><h1>🧭 อาณาจักรตารางมหัศจรรย์</h1><p>เกมผจญภัยภาษาไทยสำหรับประถมปลาย ป.4–ป.6 • คิด วิเคราะห์ จับคู่ และแก้ปริศนา</p></div></header>
-<main class="wrap">
-<section class="card"><div style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center"><div><h2 style="margin:0 0 5px">ยินดีต้อนรับ นักผจญภัย!</h2><div class="small">พิชิต 15 ด่าน • ด่านละ 5 ข้อ • รวม 75 ข้อ สะสม XP และปลดล็อกตราความรู้</div></div><div class="stats"><span class="pill">⭐ <span id="score">0</span> XP</span><span class="pill">❤️ <span id="life">5</span></span><span class="pill">🏅 <span id="level">นักสำรวจ</span></span></div></div><div class="namebox" style="display:flex;gap:8px;margin-top:14px"><input id="name" placeholder="ชื่อหรือชื่อเล่นนักเรียน"><button class="btn" onclick="saveName()">เริ่มเกม</button></div><div id="hello" class="small" style="margin-top:8px"></div></section>
-<div class="grid"><div>
-<section class="card"><div class="tabs"><button class="tab active" onclick="showTab('map',this)">🗺️ แผนที่</button><button class="tab" onclick="showTab('magic',this)">✨ ตารางมหัศจรรย์</button><button class="tab" onclick="showTab('chat',this)">💬 แลกเปลี่ยน</button><button class="tab" onclick="showTab('rank',this)">🏆 คะแนน</button></div>
-<div id="map"><div class="zones" id="zones"></div></div>
-<div id="magic" class="hidden"><p class="small">ชมพู=อักษรกลาง · เขียว=อักษรสูง · ส้ม=ต่ำคู่ · เหลือง=ต่ำเดี่ยว · 🟢=คำเป็น · ✕=คำตาย · ★=ฃ ฅ เลิกใช้</p><div class="magic" id="magicGrid"></div><p class="small">กรอบสี: แดง=กก · ฟ้า=กด · เขียว=กบ · ส้ม=กน · น้ำตาล=กง · เหลือง=กม · ชมพู=เกย · ม่วง=เกอว</p></div>
-<div id="chat" class="hidden"><p><b>💡 คำถามชวนคิด:</b> นักเรียนคิดว่าพยัญชนะตัวใดน่าสนใจที่สุด เพราะอะไร?</p><div class="chat" id="messages"><div class="msg"><b>ครู:</b> ยินดีต้อนรับเข้าสู่อาณาจักรภาษาไทย!</div></div><form class="chatform" onsubmit="sendMsg(event)"><input id="chatInput" maxlength="200" placeholder="พิมพ์ความคิดเห็นของคุณ..."><button class="btn">ส่ง</button></form></div>
-<div id="rank" class="hidden"><div id="ranking"></div></div></section>
-<section class="card hidden" id="quizCard"><div class="small" id="qTopic"></div><h2 id="qTitle" style="margin:5px 0"></h2><p id="qText"></p><div id="options"></div><div id="feedback" style="min-height:28px;margin:8px 0"></div><button class="btn secondary" onclick="closeQuiz()">กลับแผนที่</button></section>
-</div>
-<aside class="card"><h3 style="margin-top:0">📜 สมุดนักผจญภัย</h3><div class="small">ความคืบหน้า</div><div class="progress"><div class="bar" id="bar"></div></div><p><b id="done">0</b> / 15 ด่าน</p><h4>🏅 ตราที่ได้รับ</h4><div id="badges" class="small">ยังไม่มี</div><h4>📚 สิ่งที่จะได้เรียนรู้</h4><div class="lesson"><div>🔤 พยัญชนะและเสียง</div><div>🎨 อักษรสามหมู่</div><div>🟢 คำเป็น–คำตาย</div><div>🏰 มาตราตัวสะกด</div><div>🧩 พยัญชนะวรรค</div><div>🗣️ ฐานที่เกิดของเสียง</div><div>🌍 เสียงภาษาอังกฤษ</div><div>⭐ ฃ ฅ และการใช้ปัจจุบัน</div></div></aside></div></main>
-<script>
-const stages=[
-{topic:'พยัญชนะไทย',title:'🌱 ด่าน 1 — ป่าพยัญชนะ',qs:[
-['ข้อใดประกอบด้วยพยัญชนะไทยทั้งหมด?',['ก ข จ','กา มา ปู','ะ า ิ','1 2 3'],0,'ก ข จ เป็นพยัญชนะทั้งหมด'],
-['ข้อใดไม่ใช่พยัญชนะไทย?',['ก','ม','า','น'],2,'า เป็นสระ ไม่ใช่พยัญชนะ'],
-['คำว่า “ปลา” มีพยัญชนะกี่ตัว?',['1','2','3','4'],1,'พยัญชนะคือ ป และ ล มี 2 ตัว'],
-['ข้อใดมีพยัญชนะต้นเป็น “ช”?',['ช้าง','ม้า','ปลา','งู'],0,'ช้าง มี ช เป็นพยัญชนะต้น'],
-['ข้อใดเป็นพยัญชนะไทย 3 ตัว?',['ก ข ค','กา ขา คา','อะ อา อิ','1 2 3'],0,'ก ข ค เป็นพยัญชนะทั้ง 3 ตัว']
-]},
-{topic:'เสียงพยัญชนะ',title:'🔊 ด่าน 2 — ถ้ำเสียง',qs:[
-['พยัญชนะต้น “ม” มีเสียงภาษาอังกฤษใกล้เคียงข้อใด?',['m','k','t','s'],0,'ม มีเสียงใกล้เคียง m'],
-['“ฟ” มีเสียงภาษาอังกฤษใกล้เคียงข้อใด?',['f','b','d','g'],0,'ฟ ใกล้เคียงเสียง f'],
-['“น” มีเสียงภาษาอังกฤษใกล้เคียงข้อใด?',['n','m','r','w'],0,'น ใกล้เคียงเสียง n'],
-['“ก” มีเสียงภาษาอังกฤษใกล้เคียงข้อใด?',['k','p','t','f'],0,'ก ใกล้เคียงเสียง k'],
-['“ว” มีเสียงภาษาอังกฤษใกล้เคียงข้อใด?',['w','s','m','n'],0,'ว ใกล้เคียงเสียง w']
-]},
-{topic:'อักษรสามหมู่',title:'🎨 ด่าน 3 — หอคอยสามสี',qs:[
-['“ข” จัดเป็นอักษรหมู่ใด?',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว'],1,'ข เป็นอักษรสูง'],
-['“ก” จัดเป็นอักษรหมู่ใด?',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว'],0,'ก เป็นอักษรกลาง'],
-['“ง” จัดเป็นอักษรหมู่ใด?',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว'],3,'ง เป็นอักษรต่ำเดี่ยว'],
-['“ค” จัดเป็นอักษรหมู่ใด?',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว'],2,'ค เป็นอักษรต่ำคู่'],
-['ข้อใดเป็นอักษรสูงทั้งหมด?',['ข ฉ ถ','ก จ ด','ค ช ซ','ง น ม'],0,'ข ฉ ถ เป็นอักษรสูง']
-]},
-{topic:'อักษรสามหมู่',title:'🌈 ด่าน 4 — สะพานคู่เสียง',qs:[
-['ข้อใดเป็นอักษรต่ำคู่ทั้งหมด?',['ง ญ ณ น','ค ช ซ ท','ก จ ด ต','ข ฉ ถ ผ'],1,'ค ช ซ ท เป็นอักษรต่ำคู่'],
-['ข้อใดเป็นอักษรต่ำเดี่ยวทั้งหมด?',['ง น ม','ค ช ซ','ข ฉ ถ','ก จ ด'],0,'ง น ม เป็นอักษรต่ำเดี่ยว'],
-['ข้อใดเป็นอักษรกลางทั้งหมด?',['ก จ ด','ข ฉ ถ','ค ช ซ','ง น ม'],0,'ก จ ด เป็นอักษรกลาง'],
-['พยัญชนะ “พ” เป็นอักษรใด?',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว'],2,'พ เป็นอักษรต่ำคู่'],
-['พยัญชนะ “ห” เป็นอักษรใด?',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว'],1,'ห เป็นอักษรสูง']
-]},
-{topic:'คำเป็น–คำตาย',title:'🟢 ด่าน 5 — ป่าคำเป็น',qs:[
-['ข้อใดเป็นคำเป็น?',['รัก','กิน','นก','ปิด'],1,'กินลงท้ายด้วย น ในแม่กน จึงเป็นคำเป็น'],
-['ข้อใดเป็นคำเป็น?',['มา','กัด','ปัก','จบ'],0,'มาเป็นคำเป็นเพราะมีสระเสียงยาวและไม่มีตัวสะกด'],
-['ข้อใดเป็นคำเป็น?',['นอน','เด็ก','รถ','ปิด'],0,'นอนลงท้ายด้วย น เป็นคำเป็น'],
-['ข้อใดเป็นคำเป็น?',['ดู','นก','รัก','ลบ'],0,'ดูมีสระเสียงยาวและไม่มีตัวสะกด'],
-['ข้อใดเป็นคำเป็น?',['แมว','ปิด','เลข','นับ'],0,'แมวลงท้ายด้วย ว ในแม่เกอว จึงเป็นคำเป็น']
-]},
-{topic:'คำเป็น–คำตาย',title:'🔴 ด่าน 6 — ถ้ำคำตาย',qs:[
-['ข้อใดเป็นคำตาย?',['มา','นอน','เด็ก','งู'],2,'เด็กลงท้ายด้วย ก ในแม่กก จึงเป็นคำตาย'],
-['ข้อใดเป็นคำตาย?',['กา','รัก','กิน','ปู'],1,'รักลงท้ายด้วย ก เป็นคำตาย'],
-['ข้อใดเป็นคำตาย?',['ดู','จบ','มา','มี'],1,'จบลงท้ายด้วย บ ในแม่กบ เป็นคำตาย'],
-['ข้อใดเป็นคำตาย?',['ขา','นอน','ปิด','งา'],2,'ปิดลงท้ายด้วย ด ในแม่กด เป็นคำตาย'],
-['ข้อใดเป็นคำตาย?',['ปลา','จะ','ไป','ดี'],1,'จะมีสระเสียงสั้นและไม่มีตัวสะกด จึงเป็นคำตาย']
-]},
-{topic:'มาตราตัวสะกด',title:'🏰 ด่าน 7 — ปราสาทแปดมาตรา',qs:[
-['คำว่า “ลม” อยู่ในมาตราใด?',['แม่กก','แม่กน','แม่กม','แม่กง'],2,'ม เป็นตัวสะกดในแม่กม'],
-['คำว่า “กิน” อยู่ในมาตราใด?',['แม่กก','แม่กน','แม่กม','แม่กง'],1,'น เป็นตัวสะกดในแม่กน'],
-['คำว่า “นก” อยู่ในมาตราใด?',['แม่กก','แม่กด','แม่กบ','แม่กน'],0,'ก เป็นตัวสะกดในแม่กก'],
-['คำว่า “ลอย” อยู่ในมาตราใด?',['แม่กง','แม่กม','แม่เกย','แม่เกอว'],2,'ย เป็นตัวสะกดในแม่เกย'],
-['คำว่า “ดาว” อยู่ในมาตราใด?',['แม่กก','แม่กน','แม่เกย','แม่เกอว'],3,'ว เป็นตัวสะกดในแม่เกอว']
-]},
-{topic:'พยัญชนะวรรค',title:'🧩 ด่าน 8 — ห้าวรรคพิทักษ์',qs:[
-['ก ข ค ฆ อยู่ในวรรคใด?',['วรรคกะ','วรรคจะ','วรรคฏะ','วรรคปะ'],0,'ก ข ค ฆ อยู่ในวรรคกะ'],
-['จ ฉ ช ฌ อยู่ในวรรคใด?',['วรรคกะ','วรรคจะ','วรรคฏะ','วรรคปะ'],1,'จ ฉ ช ฌ อยู่ในวรรคจะ'],
-['ฏ ฐ ฑ ฒ อยู่ในวรรคใด?',['วรรคกะ','วรรคจะ','วรรคฏะ','วรรคตะ'],2,'ฏ ฐ ฑ ฒ อยู่ในวรรคฏะ'],
-['ต ถ ท ธ อยู่ในวรรคใด?',['วรรคกะ','วรรคจะ','วรรคตะ','วรรคปะ'],2,'ต ถ ท ธ อยู่ในวรรคตะ'],
-['ป ผ พ ภ อยู่ในวรรคใด?',['วรรคกะ','วรรคจะ','วรรคตะ','วรรคปะ'],3,'ป ผ พ ภ อยู่ในวรรคปะ']
-]},
-{topic:'ฐานที่เกิดของเสียง',title:'🗣️ ด่าน 9 — วิหารฐานเสียง',qs:[
-['กลุ่ม ก ข ค ฆ มีฐานกรณ์ใด?',['ริมฝีปาก','เพดานอ่อน','ปุ่มเหงือก','ฟัน'],1,'กลุ่ม ก ข ค ฆ เกิดที่เพดานอ่อน'],
-['เสียง ป พ ภ ม เกิดที่ฐานใด?',['ริมฝีปาก','เพดานอ่อน','ปุ่มเหงือก','ฟัน'],0,'กลุ่ม ป พ ภ ม ใช้ริมฝีปาก'],
-['เสียง ต ท ธ น เกิดที่ฐานใด?',['ริมฝีปาก','เพดานอ่อน','ปุ่มเหงือก','ฟัน'],2,'กลุ่ม ต ท ธ น เกี่ยวข้องกับปุ่มเหงือก'],
-['เสียง จ ช ซ ญ เกิดที่ฐานใด?',['ริมฝีปาก','เพดานแข็ง','ปุ่มเหงือก','เพดานอ่อน'],1,'กลุ่ม จ ช ซ ญ ใช้บริเวณเพดานแข็ง'],
-['การรู้ฐานกรณ์ช่วยเรื่องใดมากที่สุด?',['จำชื่อจังหวัด','เข้าใจตำแหน่งการเกิดเสียง','คำนวณคะแนน','สะกดตัวเลข'],1,'ฐานกรณ์ช่วยให้เข้าใจตำแหน่งที่เกิดของเสียง']
-]},
-{topic:'เศษวรรค',title:'🪄 ด่าน 10 — ประตูเศษวรรค',qs:[
-['ข้อใดเป็นกลุ่มพยัญชนะเศษวรรค?',['ย ร ล ว','ก ข ค ฆ','จ ฉ ช ฌ','บ ป ผ พ'],0,'ย ร ล ว เป็นส่วนหนึ่งของเศษวรรค'],
-['ข้อใดอยู่ในกลุ่มเศษวรรค?',['ศ ษ ส','ก ข ค','ต ถ ท','บ ป พ'],0,'ศ ษ ส อยู่ในเศษวรรค'],
-['ข้อใดไม่ใช่พยัญชนะวรรคกะ?',['ง','ก','ข','ย'],3,'ย อยู่ในเศษวรรค'],
-['“ร” จัดอยู่ในกลุ่มใดตามตารางเรียนนี้?',['วรรคกะ','วรรคจะ','วรรคปะ','เศษวรรค'],3,'ร อยู่ในเศษวรรค'],
-['ข้อใดเป็นกลุ่มที่พบในเศษวรรค?',['ย ร ล ว','ก ข ค ฆ','จ ฉ ช ฌ','ป ผ พ ภ'],0,'ย ร ล ว เป็นกลุ่มเศษวรรคที่เรียนในเกมนี้']
-]},
-{topic:'ตัวสะกดตรงมาตรา',title:'🛡️ ด่าน 11 — คลังตัวสะกด',qs:[
-['ตัวใดเป็นตัวสะกดตรงมาตราแม่กง?',['ง','ก','ด','บ'],0,'ง เป็นตัวสะกดแม่กง'],
-['ตัวใดเป็นตัวสะกดตรงมาตราแม่กม?',['ม','น','ง','ย'],0,'ม เป็นตัวสะกดแม่กม'],
-['ตัวใดเป็นตัวสะกดตรงมาตราแม่เกย?',['ว','ย','ง','ม'],1,'ย เป็นตัวสะกดแม่เกย'],
-['ตัวใดเป็นตัวสะกดตรงมาตราแม่เกอว?',['ว','ย','น','ง'],0,'ว เป็นตัวสะกดแม่เกอว'],
-['ข้อใดจับคู่ถูกต้อง?',['ง–แม่กง','ม–แม่กน','ย–แม่กม','ว–แม่กบ'],0,'ง จับคู่กับแม่กงได้ถูกต้อง']
-]},
-{topic:'ตัวสะกดไม่ตรงมาตรา',title:'⚔️ ด่าน 12 — สนามประลอง',qs:[
-['คำว่า “เลข” มีตัวสะกดเป็น ข แต่เสียงท้ายอยู่ในมาตราใด?',['แม่กก','แม่กด','แม่กบ','แม่กน'],0,'เลขมีเสียงท้าย /k/ จัดอยู่แม่กก'],
-['คำว่า “รถ” มีตัวสะกดเป็น ต แต่เสียงท้ายอยู่ในมาตราใด?',['แม่กก','แม่กด','แม่กบ','แม่กน'],1,'รถมีเสียงท้าย /t/ จัดอยู่แม่กด'],
-['คำว่า “ภาพ” มีตัวสะกดเป็น พ แต่เสียงท้ายอยู่ในมาตราใด?',['แม่กก','แม่กด','แม่กบ','แม่กน'],2,'ภาพมีเสียงท้าย /p/ จัดอยู่แม่กบ'],
-['คำว่า “พร” มีตัวสะกดเป็น ร แต่เสียงท้ายอยู่ในมาตราใด?',['แม่กน','แม่กง','แม่กม','แม่เกย'],0,'พรมีเสียงท้าย /n/ จัดอยู่แม่กน'],
-['คำว่า “เลข” แสดงให้เห็นอะไร?',['รูปตัวสะกดกับเสียงท้ายอาจต่างกัน','ทุกตัวสะกดออกเสียงตรงตัว','ไม่มีมาตราตัวสะกด','เป็นคำที่ไม่มีตัวสะกด'],0,'ข ในเลขเขียนต่างจากเสียงท้ายที่เป็น /k/']
-]},
-{topic:'อักษรที่เลิกใช้',title:'⭐ ด่าน 13 — ห้องอักษรโบราณ',qs:[
-['ข้อใดกล่าวถูกต้องเกี่ยวกับ ฃ และ ฅ?',['ยังใช้ทั่วไป','เป็นพยัญชนะที่เลิกใช้แล้วในปัจจุบัน','เป็นสระ','เป็นวรรณยุกต์'],1,'ฃ และ ฅ เลิกใช้ในภาษาไทยปัจจุบัน'],
-['พยัญชนะใดในตัวเลือกนี้เลิกใช้แล้ว?',['ก','ข','ฃ','ง'],2,'ฃ เป็นพยัญชนะที่เลิกใช้แล้ว'],
-['พยัญชนะใดอีกตัวหนึ่งเลิกใช้แล้ว?',['ค','ฅ','ฆ','จ'],1,'ฅ เป็นพยัญชนะที่เลิกใช้แล้ว'],
-['เครื่องหมาย ★ ในตารางเกมใช้แทนอะไร?',['คำเป็น','คำตาย','อักษรที่เลิกใช้','วรรคกะ'],2,'★ ใช้ทำเครื่องหมาย ฃ และ ฅ'],
-['เหตุผลในการเรียนรู้ ฃ ฅ ในเกมนี้คืออะไร?',['เพื่อรู้ประวัติและการใช้ภาษาในปัจจุบัน','เพื่อให้ใช้แทน ก ทุกคำ','เพื่อแทนสระ','เพื่อใช้แทนวรรณยุกต์'],0,'ช่วยให้รู้จักอักษรไทยและการใช้ในปัจจุบัน']
-]},
-{topic:'ภารกิจวิเคราะห์',title:'🧠 ด่าน 14 — ห้องนักวิเคราะห์',qs:[
-['คำใดมี “ข” เป็นพยัญชนะต้นและเป็นคำเป็น?',['ขา','ขัด','ขบ','ขีด'],0,'ขาเป็นคำเป็น'],
-['คำใดมี “ก” เป็นพยัญชนะต้นและเป็นคำตาย?',['กา','กิน','กัด','กู'],2,'กัดลงท้ายด้วย ด ในแม่กด เป็นคำตาย'],
-['คำใดมี “ง” เป็นพยัญชนะต้นและเป็นคำเป็น?',['งู','งัด','งบ','งด'],0,'งูเป็นคำเป็น'],
-['ข้อใดมีอักษรสูงเป็นพยัญชนะต้น?',['ขา','กา','คา','งา'],0,'ข เป็นอักษรสูง'],
-['ข้อใดวิเคราะห์ได้ถูกต้อง?',['ขา–อักษรสูง–คำเป็น','กา–อักษรสูง–คำตาย','งู–อักษรกลาง–คำตาย','คา–อักษรสูง–คำเป็น'],0,'ขาเป็นอักษรสูงและเป็นคำเป็น']
-]},
-{topic:'ภารกิจสุดท้าย',title:'👑 ด่าน 15 — มงกุฎนักภาษา',qs:[
-['ข้อใดอธิบาย “ง” ได้ถูกต้องที่สุด?',['ต่ำเดี่ยว + วรรคกะ + แม่กง','กลาง + วรรคจะ + แม่กก','สูง + วรรคปะ + แม่กน','ต่ำคู่ + เศษวรรค + แม่กม'],0,'ง เป็นต่ำเดี่ยว อยู่ในวรรคกะ และเป็นตัวสะกดแม่กง'],
-['ข้อใดอธิบาย “ม” ได้ถูกต้อง?',['ต่ำเดี่ยว + วรรคปะ + แม่กม','สูง + วรรคกะ + แม่กง','กลาง + วรรคจะ + แม่กด','ต่ำคู่ + เศษวรรค + แม่เกย'],0,'ม เป็นต่ำเดี่ยว อยู่ในวรรคปะ และเป็นตัวสะกดแม่กม'],
-['ข้อใดอธิบาย “ข” ได้ถูกต้อง?',['สูง + วรรคกะ','ต่ำคู่ + วรรคจะ','กลาง + วรรคตะ','ต่ำเดี่ยว + เศษวรรค'],0,'ข เป็นอักษรสูงในวรรคกะ'],
-['ข้อใดอธิบาย “ย” ได้ถูกต้องตามตารางเกม?',['ต่ำเดี่ยว + เศษวรรค + แม่เกย','สูง + วรรคกะ + แม่กง','กลาง + วรรคปะ + แม่กม','ต่ำคู่ + วรรคจะ + แม่กด'],0,'ย เป็นต่ำเดี่ยว อยู่ในเศษวรรค และเป็นตัวสะกดแม่เกย'],
-['ถ้าต้องวิเคราะห์คำว่า “ลม” ควรเลือกชุดใด?',['ล–ต่ำเดี่ยว, ม–ต่ำเดี่ยว, แม่กม','ล–สูง, ม–กลาง, แม่กง','ล–ต่ำคู่, ม–สูง, แม่กน','ล–กลาง, ม–ต่ำคู่, แม่กบ'],0,'ล และ ม เป็นต่ำเดี่ยว และลมอยู่แม่กม']
-]}
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>🌈 ผจญภัยอาณาจักรภาษาไทย</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:linear-gradient(135deg,#fff0f8,#e5f9ff,#fffbdc);color:#263238}.wrap{max-width:1050px;margin:auto;padding:18px}header{background:linear-gradient(135deg,#7c4dff,#00bcd4);color:white;padding:25px;border-radius:24px}h1{margin:0 0 8px;font-size:clamp(28px,5vw,46px)}.card{background:#fff;padding:20px;border-radius:20px;margin-top:16px;box-shadow:0 7px 25px #0001}.start{display:flex;gap:10px}.start input,.chat input{flex:1;padding:13px;border:2px solid #ddd;border-radius:12px}.btn{border:0;border-radius:12px;padding:12px 18px;background:#ff4081;color:#fff;font-weight:bold;cursor:pointer}.btn:hover{filter:brightness(.92)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.stat{text-align:center;background:#f3f5ff;padding:10px;border-radius:14px}.stat b{display:block;font-size:24px}.bar{height:10px;background:#eee;border-radius:10px;margin-top:12px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,#ff4081,#7c4dff,#00bcd4);width:0}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.tab{background:#fff;color:#333;border:2px solid #ddd}.tab.active{background:#673ab7;color:#fff}.hidden{display:none!important}.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}.zone{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px;border:3px solid #eee;border-radius:18px;background:#fff9ff}.zone.done{border-color:#63c76a;background:#f1fff1}.emoji{font-size:30px}.small{font-size:13px;color:#687}.quiz{border:4px solid #7c4dff}.qmeta{color:#673ab7;font-weight:bold}.question{font-size:21px;font-weight:bold;margin:15px 0}.options{display:grid;gap:9px}.option{text-align:left;padding:14px;border:2px solid #ddd;background:white;border-radius:12px;cursor:pointer}.option:hover{border-color:#7c4dff;background:#f5f0ff}.option:disabled{cursor:not-allowed}.good{color:#188b35;font-weight:bold}.bad{color:#d32f2f;font-weight:bold}.feedback{min-height:28px;margin-top:12px}.magic{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px}.cell{text-align:center;padding:10px;border-radius:12px;border:2px solid #ddd}.cell b{display:block;font-size:28px}.กลาง{background:#ffc9df}.สูง{background:#caffcf}.ต่ำคู่{background:#ffd09b}.ต่ำเดี่ยว{background:#fff36a}.chatbox{height:240px;overflow:auto;background:#f6f6f6;padding:10px;border-radius:12px}.msg{background:white;padding:8px;border-radius:9px;margin:5px}.chat{display:flex;gap:8px;margin-top:8px}.rankrow{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid #eee}@media(max-width:650px){.start{flex-direction:column}.stats{grid-template-columns:repeat(2,1fr)}.zone{align-items:flex-start;flex-direction:column}}
+</style></head><body><div class="wrap">
+<header><h1>🌈 ผจญภัยอาณาจักรภาษาไทย</h1><div>เกมภาษาไทยระดับ ป.4–ป.6 • 15 ด่าน • ด่านละ 5 ข้อ</div></header>
+<section class="card"><h2>🎮 เริ่มเกม</h2><div class="start"><input id="name" placeholder="พิมพ์ชื่อผู้เล่น"><button class="btn" id="start">เริ่มการผจญภัย</button></div><div id="hello"></div><div class="stats"><div class="stat">⭐ XP<b id="score">0</b></div><div class="stat">❤️ ชีวิต<b id="life">5</b></div><div class="stat">🏆 ด่าน<b id="done">0/15</b></div><div class="stat">🎖️ ระดับ<b id="level">นักสำรวจ</b></div></div><div class="bar"><i id="progress"></i></div></section>
+<div class="tabs"><button class="btn tab active" data-open="map">🗺️ แผนที่</button><button class="btn tab" data-open="magic">✨ ตารางความรู้</button><button class="btn tab" data-open="chat">💬 แชต</button><button class="btn tab" data-open="rank">🏆 อันดับ</button></div>
+<section id="map" class="card page"><h2>🗺️ เลือกด่าน</h2><div id="zones" class="zones"></div></section>
+<section id="magic" class="card page hidden"><h2>✨ อักษรสามหมู่</h2><p>สีในตารางนี้เป็นรูปแบบสีที่ใช้ในกิจกรรมเกมนี้</p><div id="magicGrid" class="magic"></div></section>
+<section id="chat" class="card page hidden"><h2>💬 ห้องแชต</h2><div id="messages" class="chatbox"><div class="msg">🤖 ผู้ช่วย: พร้อมเรียนภาษาไทยหรือยัง?</div></div><form id="chatForm" class="chat"><input id="chatInput" placeholder="พิมพ์ข้อความ..."><button class="btn">ส่ง</button></form></section>
+<section id="rank" class="card page hidden"><h2>🏆 ตารางคะแนน</h2><div id="ranking"></div></section>
+<section id="quiz" class="card quiz hidden"><div class="qmeta" id="qmeta"></div><h2 id="qtitle"></h2><div class="question" id="qtext"></div><div id="options" class="options"></div><div id="feedback" class="feedback"></div><button class="btn" id="back">กลับแผนที่</button></section>
+</div><script>
+(function(){
+var topics=[
+['🔤','พยัญชนะไทย'],['🔊','เสียงพยัญชนะ'],['🎨','อักษรสามหมู่'],['🌈','จำแนกอักษร'],['🟢','คำเป็น'],['🔴','คำตาย'],['🎯','มาตราตัวสะกด'],['🧩','พยัญชนะวรรค'],['🗣️','ตำแหน่งเกิดเสียง'],['🪄','เศษวรรค'],['🛡️','ตัวสะกดตรงมาตรา'],['⚔️','ตัวสะกดไม่ตรงมาตรา'],['⭐','อักษรที่ไม่ใช้เป็นตัวสะกด'],['🧠','วิเคราะห์คำ'],['👑','บอสใหญ่ภาษาไทย']
 ];
-const questions=stages.flatMap((stage,si)=>stage.qs.map((q,qi)=>[stage.topic,stage.title,q[0],q[1],q[2],q[3],si,qi]));
-const chars=[['ก','k','mid','กก','กะ','a'],['ข','kh','high','กก','กะ','d'],['ฃ','kh','high','—','กะ','o'],['ค','kh','lowpair','กก','กะ','a'],['ฅ','kh','lowpair','—','กะ','o'],['ฆ','kh','lowpair','กก','กะ','a'],['ง','ng','lowone','กง','กะ','a'],['จ','ch/j','mid','กด','จะ','d'],['ฉ','ch','high','—','จะ','n'],['ช','ch','lowpair','กด','จะ','a'],['ซ','s','lowpair','กด','จะ','a'],['ฌ','ch','lowpair','—','จะ','n'],['ญ','y','lowone','กน','จะ','a'],['ฎ','d','mid','กด','ฏะ','d'],['ฏ','t','mid','กด','ฏะ','d'],['ฐ','th','high','กด','ฏะ','d'],['ฑ','th','lowpair','กด','ฏะ','a'],['ฒ','th','lowpair','กด','ฏะ','a'],['ณ','n','lowone','กน','ฏะ','a'],['ด','d','mid','กด','ตะ','a'],['ต','t','mid','กด','ตะ','d'],['ถ','th','high','กด','ตะ','d'],['ท','th','lowpair','กด','ตะ','a'],['ธ','th','lowpair','กด','ตะ','a'],['น','n','lowone','กน','ตะ','a'],['บ','b','mid','กบ','ปะ','d'],['ป','p','mid','กบ','ปะ','d'],['ผ','ph','high','—','ปะ','n'],['ฝ','f','high','—','ปะ','n'],['พ','ph','lowpair','กบ','ปะ','a'],['ฟ','f','lowpair','กบ','ปะ','a'],['ภ','ph','lowpair','กบ','ปะ','a'],['ม','m','lowone','กม','ปะ','a'],['ย','y','lowone','เกย','เศษวรรค','d'],['ร','r','lowone','—','เศษวรรค','n'],['ล','l','lowone','—','เศษวรรค','n'],['ว','w','lowone','เกอว','เศษวรรค','d'],['ศ','s','high','—','เศษวรรค','n'],['ษ','s','high','—','เศษวรรค','n'],['ส','s','high','—','เศษวรรค','n'],['ห','h','high','—','เศษวรรค','n'],['ฬ','l','lowone','—','เศษวรรค','n'],['อ','o','mid','—','เศษวรรค','n'],['ฮ','h','lowpair','—','เศษวรรค','n']];
-let state={name:'',score:0,life:5,done:[],badges:[],answered:{}};
-let currentStage=0,currentQ=0;
-const $=id=>document.getElementById(id);
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function saveName(){const n=$('name').value.trim();if(!n){alert('กรุณาใส่ชื่อก่อนเริ่มเกม');return}state.name=n;$('hello').textContent='🎮 ผู้เล่น: '+n;render();}
-function showTab(id,btn){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');['map','magic','chat','rank'].forEach(x=>$(x).classList.toggle('hidden',x!==id));}
-function render(){if($('score'))$('score').textContent=state.score;if($('life'))$('life').textContent=state.life;if($('done'))$('done').textContent=state.done.length;if($('bar'))$('bar').style.width=(state.done.length/15*100)+'%';if($('level'))$('level').textContent=state.score>=600?'จอมปราชญ์':state.score>=400?'ผู้พิทักษ์อักษร':state.score>=200?'นักวิเคราะห์':'นักสำรวจ';if($('badges'))$('badges').textContent=state.badges.length?state.badges.join(' · '):'ยังไม่มี';renderZones();renderMagic();renderRank();}
-function renderZones(){const el=$('zones');if(!el)return;el.innerHTML='';stages.forEach((st,i)=>{const d=document.createElement('div');d.className='zone '+(state.done.includes(i)?'done':'');const emoji=st.title.split(' ')[0],title=st.title.replace(/^\S+\s*/,'');const lv=i<5?'⭐ พื้นฐาน':i<10?'⭐⭐ ท้าทาย':'⭐⭐⭐ นักวิเคราะห์';d.innerHTML='<div><span class="emoji">'+emoji+'</span><h3>'+title+'</h3><div class="small">'+st.topic+' • 5 ข้อ</div><span class="difficulty">'+lv+'</span></div><button class="btn" onclick="openQuiz('+i+')">'+(state.done.includes(i)?'✓ ทบทวน':'เริ่มภารกิจ')+'</button>';el.appendChild(d);});}
-function renderMagic(){const el=$('magicGrid');if(!el)return;el.innerHTML='';chars.forEach(x=>{const [ch,en,k,fin,w,n]=x;const fc=fin==='กก'?'gak':fin==='กด'?'kod':fin==='กบ'?'kob':fin==='กน'?'kon':fin==='กง'?'kong':fin==='กม'?'kom':fin==='เกย'?'koey':fin==='เกอว'?'koew':'';const mark=n==='a'?'🟢':n==='d'?'✕':n==='o'?'★':'';const d=document.createElement('div');d.className='cell '+k+' '+fc;d.innerHTML='<span class="mark">'+mark+'</span><b>'+ch+'</b><small>('+en+')</small><small>'+fin+'</small><small>'+w+'</small>';el.appendChild(d);});}
-function renderRank(){if(!$('ranking'))return;const arr=[{n:state.name||'คุณ',s:state.score},{n:'นักสำรวจ ก.',s:80},{n:'นักสำรวจ ข.',s:70},{n:'นักสำรวจ ค.',s:50}].sort((a,b)=>b.s-a.s);$('ranking').innerHTML=arr.map((x,i)=>'<div class="rankrow"><span>🏆 '+(i+1)+'. '+esc(x.n)+'</span><b>'+x.s+' XP</b></div>').join('');}
-function openQuiz(si){if(!state.name){alert('กรุณาใส่ชื่อผู้เล่นก่อน');return}currentStage=si;currentQ=0;$('quizCard').classList.remove('hidden');showQuestion();$('quizCard').scrollIntoView({behavior:'smooth'});}
-function showQuestion(){const st=stages[currentStage],q=st.qs[currentQ];$('qTopic').textContent=st.topic+' • ข้อ '+(currentQ+1)+' / 5';$('qTitle').textContent=st.title;$('qText').textContent=q[0];$('feedback').textContent='';$('options').innerHTML=q[1].map((o,j)=>'<button class="option" onclick="answer('+currentStage+','+currentQ+','+j+')">'+String.fromCharCode(65+j)+'. '+esc(o)+'</button>').join('');}
-function answer(si,qi,a){const q=stages[si].qs[qi];document.querySelectorAll('#options .option').forEach(x=>x.disabled=true);const key=si+'-'+qi;if(a===q[2]){if(!state.answered[key]){state.answered[key]=true;state.score+=10}$('feedback').innerHTML='<span class="good">✅ ถูกต้อง! +10 XP — '+q[3]+'</span>';}else{state.life=Math.max(0,state.life-1);$('feedback').innerHTML='<span class="bad">❌ ยังไม่ถูก — '+q[3]+'</span>';}const complete=[0,1,2,3,4].every(n=>state.answered[si+'-'+n]);if(complete&&!state.done.includes(si)){state.done.push(si);state.badges.push(['🔤 นักสำรวจพยัญชนะ','🔊 นักฟังเสียง','🎨 จอมสามหมู่','🌈 นักจับคู่หมู่','🟢 ผู้พิทักษ์คำเป็น','🔴 ผู้พิทักษ์คำตาย','🎯 นักสะกด','🧩 นักจัดวรรค','🗣️ นักค้นฐานเสียง','🪄 ผู้พิทักษ์เศษวรรค','🛡️ ผู้พิทักษ์มาตรา','⚔️ นักวิเคราะห์ตัวสะกด','⭐ นักอนุรักษ์อักษร','🧠 นักคิดภาษา','👑 มงกุฎนักภาษา'][si]);}render();if(a===q[2]&&qi<4){setTimeout(()=>{currentQ++;showQuestion();},650)}else if(a===q[2]&&qi===4){setTimeout(()=>{$('qText').textContent=si===14?'🎉 ยอดเยี่ยม! คุณพิชิตครบทั้ง 15 ด่านแล้ว':'🎉 ผ่านด่าน '+(si+1)+' แล้ว!';$('options').innerHTML='';},700);}}
-function closeQuiz(){$('quizCard').classList.add('hidden');}
-function sendMsg(e){e.preventDefault();const input=$('chatInput'),v=input.value.trim();if(!v)return;const d=document.createElement('div');d.className='msg';d.innerHTML='<b>'+esc(state.name||'นักเรียน')+':</b> '+esc(v);$('messages').appendChild(d);input.value='';$('messages').scrollTop=$('messages').scrollHeight;}
-render();
+var bank=[
+[['ข้อใดเป็นพยัญชนะไทย',['ก ข ค ง','สระ','วรรณยุกต์','เลขไทย']],['พยัญชนะต้นของ “ปลา” คือ',['ปล','ป','ล','ปลา']],['คำใดขึ้นต้นด้วย ม',['ม้า','กา','นา','ลา']],['พยัญชนะในคำว่า “เรียน” คือ',['ร','เ','ี','ย']],['ข้อใดไม่ใช่พยัญชนะ',['า','ก','ข','ม']]],
+[['“กา” ขึ้นต้นด้วยเสียงใด',['ก','ม','น','ล']],['“มา” ขึ้นต้นด้วยเสียงใด',['ม','ก','น','ร']],['“นา” ขึ้นต้นด้วยเสียงใด',['น','ม','ล','ก']],['“ลา” ขึ้นต้นด้วยเสียงใด',['ล','ร','น','ม']],['“ปลา” มีพยัญชนะต้นใด',['ปล','ป','ล','ปลา']]],
+[['“ก” ตามตารางเกมอยู่หมู่ใด',['กลาง','สูง','ต่ำคู่','ต่ำเดี่ยว']],['“ข” อยู่หมู่ใด',['สูง','กลาง','ต่ำคู่','ต่ำเดี่ยว']],['“ค” อยู่หมู่ใด',['ต่ำคู่','สูง','กลาง','ต่ำเดี่ยว']],['“ม” อยู่หมู่ใด',['ต่ำเดี่ยว','สูง','กลาง','ต่ำคู่']],['“ป” อยู่หมู่ใด',['ต่ำคู่','สูง','กลาง','ต่ำเดี่ยว']]],
+[['อักษรกลางคือข้อใด',['ก','ข','ค','น']],['อักษรสูงคือข้อใด',['ฉ','ก','ค','ม']],['อักษรต่ำคู่คือข้อใด',['ค','ข','ก','น']],['อักษรต่ำเดี่ยวคือข้อใด',['น','ข','ก','จ']],['“ม” ตามตารางเกมเป็นอักษรใด',['ต่ำเดี่ยว','สูง','กลาง','ต่ำคู่']]],
+[['ข้อใดเป็นคำเป็น',['กิน','รัก','ปิด','นก']],['ข้อใดเป็นคำเป็น',['นอน','เด็ก','จับ','ปาก']],['“มา” เป็นคำอะไร',['คำเป็น','คำตาย','อักษรสูง','อักษรกลาง']],['“ดี” เป็นคำอะไร',['คำเป็น','คำตาย','คำพ้อง','คำซ้ำ']],['ข้อใดเป็นคำเป็น',['เดิน','กัด','ปิด','นก']]],
+[['ข้อใดเป็นคำตาย',['รัก','มา','นอน','เดิน']],['ข้อใดเป็นคำตาย',['ปิด','ดี','ดู','กา']],['“นก” เป็นคำอะไร',['คำตาย','คำเป็น','คำซ้ำ','คำพ้อง']],['“จับ” เป็นคำอะไร',['คำตาย','คำเป็น','คำประสม','คำซ้อน']],['ข้อใดเป็นคำตาย',['เด็ก','มา','นอน','ดี']]],
+[['“กบ” อยู่มาตราใด',['กบ','กก','กน','กม']],['“นก” อยู่มาตราใด',['กก','กด','กบ','กง']],['“ลม” อยู่มาตราใด',['กม','กน','กง','กบ']],['“นอน” อยู่มาตราใด',['กน','กง','กม','กก']],['“ของ” อยู่มาตราใด',['กง','กน','กม','กก']]],
+[['ก ข ค ง อยู่ในวรรคใด',['วรรคกะ','วรรคจะ','วรรคฏะ','วรรคตะ']],['จ ฉ ช อยู่ในวรรคใด',['วรรคจะ','วรรคกะ','วรรคปะ','เศษวรรค']],['ฏ ฐ ฑ อยู่ในวรรคใด',['วรรคฏะ','วรรคกะ','วรรคตะ','วรรคปะ']],['ต ถ ท อยู่ในวรรคใด',['วรรคตะ','วรรคจะ','วรรคฏะ','วรรคกะ']],['ป ผ พ อยู่ในวรรคใด',['วรรคปะ','วรรคตะ','วรรคจะ','เศษวรรค']]],
+[['เสียง ป เกิดเด่นที่ใด',['ริมฝีปาก','ปุ่มเหงือก','เพดานอ่อน','คอ']],['เสียง ต เกิดเด่นที่ใด',['ปุ่มเหงือก','ริมฝีปาก','เพดานอ่อน','คอ']],['เสียง ก เกิดเด่นที่ใด',['เพดานอ่อน','ริมฝีปาก','ปุ่มเหงือก','คอ']],['เสียง จ เกิดเด่นที่ใด',['เพดานแข็ง','ริมฝีปาก','ปุ่มเหงือก','คอ']],['เสียง ม ใช้อวัยวะใดเด่น',['ริมฝีปาก','ลิ้นไก่','ปุ่มเหงือก','เพดานแข็ง']]],
+[['กลุ่มเศษวรรคตามตารางเกมคือ',['ย ร ล ว','ก ข ค','จ ฉ ช','ต ถ ท']],['“ยาย” มีตัวใดในกลุ่มนี้',['ย','ก','ต','พ']],['“ลม” มีตัวใดในกลุ่มนี้',['ล','ก','ม','น']],['“วัว” มีตัวใดในกลุ่มนี้',['ว','ก','อ','ส']],['ข้อใดไม่อยู่ในกลุ่ม ย ร ล ว',['ก','ย','ร','ว']]],
+[['ตัวสะกดตรงมาตรากงคือ',['ง','น','ม','ย']],['ตัวสะกดตรงมาตรากมคือ',['ม','น','ง','บ']],['ตัวสะกดตรงมาตรากนคือ',['น','ง','ม','ย']],['ตัวสะกดตรงมาตรากบคือ',['บ','ม','น','ง']],['ตัวสะกดตรงมาตรากกคือ',['ก','ข','ค','ง']]],
+[['ตัวสะกดไม่ตรงมาตรากดคือ',['จ','น','ม','ง']],['ตัวสะกดไม่ตรงมาตรากบคือ',['พ','น','ม','ง']],['ตัวสะกดไม่ตรงมาตรากนคือ',['ร','ม','ง','บ']],['ตัวสะกดไม่ตรงมาตรากกคือ',['ข','น','ม','ง']],['ตัวสะกดไม่ตรงมาตรากบคือ',['ฟ','น','ม','ง']]],
+[['ตามตารางเกม ตัวใดไม่ใช้เป็นตัวสะกด',['ฃ','ก','ง','น']],['ตามตารางเกม ตัวใดไม่ใช้เป็นตัวสะกด',['ฉ','ก','ม','น']],['ตามตารางเกม ตัวใดไม่ใช้เป็นตัวสะกด',['ห','ก','ง','บ']],['อักษรใดเลิกใช้ในภาษาไทยปัจจุบัน',['ฅ','ก','ม','น']],['ฃ และ ฅ มีสถานะอย่างไร',['เลิกใช้','เป็นสระ','เป็นวรรณยุกต์','เป็นตัวเลข']]],
+[['“กิน” มีตัวสะกดใด',['น','ก','ม','ง']],['“ลม” มีตัวสะกดใด',['ม','น','ง','ก']],['“เด็ก” มีตัวสะกดใด',['ก','น','ม','ง']],['“ภาพ” มีตัวสะกดใด',['พ','บ','ม','น']],['“นก” เป็นคำอะไร',['คำตาย','คำเป็น','คำซ้ำ','คำพ้อง']]],
+[['“บ้าน” มีตัวสะกดมาตราใด',['กน','กง','กม','กบ']],['“รัก” เป็นคำอะไร',['คำตาย','คำเป็น','คำซ้ำ','คำพ้อง']],['“ข” ตามตารางเกมเป็นอักษรหมู่ใด',['สูง','กลาง','ต่ำคู่','ต่ำเดี่ยว']],['“ม” ตามตารางเกมเป็นอักษรหมู่ใด',['ต่ำเดี่ยว','สูง','กลาง','ต่ำคู่']],['ข้อใดเป็นตัวสะกดตรงมาตรา',['ง','จ','พ','ร']]]
+];
+var state={name:'',score:0,life:5,done:[],ans:{}};var stage=0,q=0;
+function $(x){return document.getElementById(x)}function esc(s){return String(s).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]})}
+function save(){try{localStorage.setItem('thaiAdventure',JSON.stringify(state))}catch(e){}}function load(){try{var x=JSON.parse(localStorage.getItem('thaiAdventure'));if(x)state=x}catch(e){}}
+function render(){ $('score').textContent=state.score;$('life').textContent=state.life;$('done').textContent=state.done.length+'/15';$('progress').style.width=state.done.length/15*100+'%';$('level').textContent=state.score>=600?'👑 จอมปราชญ์':state.score>=400?'🛡️ ผู้พิทักษ์':state.score>=200?'⭐ นักวิเคราะห์':'🌱 นักสำรวจ';renderZones();renderMagic();renderRank()}
+function renderZones(){var z=$('zones');z.innerHTML='';topics.forEach(function(t,i){var d=document.createElement('div');d.className='zone'+(state.done.indexOf(i)>=0?' done':'');d.innerHTML='<div><span class="emoji">'+t[0]+'</span><h3>ด่าน '+(i+1)+' '+t[1]+'</h3><div class="small">5 ข้อ • '+(i<5?'พื้นฐาน':i<10?'ท้าทาย':'นักวิเคราะห์')+'</div></div><button class="btn">เริ่มด่าน</button>';d.querySelector('button').onclick=function(){openQuiz(i)};z.appendChild(d)})}
+function renderMagic(){var x=[['ก','กลาง'],['จ','กลาง'],['ต','กลาง'],['บ','กลาง'],['ข','สูง'],['ฉ','สูง'],['ถ','สูง'],['ผ','สูง'],['ค','ต่ำคู่'],['ช','ต่ำคู่'],['ท','ต่ำคู่'],['พ','ต่ำคู่'],['ง','ต่ำเดี่ยว'],['น','ต่ำเดี่ยว'],['ม','ต่ำเดี่ยว'],['ย','ต่ำเดี่ยว'],['ว','ต่ำเดี่ยว']];$('magicGrid').innerHTML='';x.forEach(function(a){var d=document.createElement('div');d.className='cell '+a[1];d.innerHTML='<b>'+a[0]+'</b><small>'+a[1]+'</small>';$('magicGrid').appendChild(d)})}
+function renderRank(){var a=[{n:state.name||'คุณ',s:state.score},{n:'นักภาษา ก.',s:120},{n:'นักภาษา ข.',s:90},{n:'นักภาษา ค.',s:60}].sort(function(x,y){return y.s-x.s});$('ranking').innerHTML=a.map(function(x,i){return '<div class="rankrow"><span>🏆 '+(i+1)+'. '+esc(x.n)+'</span><b>'+x.s+' XP</b></div>'}).join('')}
+function start(){var n=$('name').value.trim();if(!n){alert('กรุณาพิมพ์ชื่อก่อนเริ่มเกม');$('name').focus();return}state.name=n;$('hello').textContent='🎮 ยินดีต้อนรับ '+n+'!';save();render()}
+function openQuiz(i){if(!state.name){alert('กรุณาพิมพ์ชื่อก่อนเริ่มเกม');return}stage=i;q=0;$('quiz').classList.remove('hidden');showQuestion();$('quiz').scrollIntoView({behavior:'smooth'})}
+function showQuestion(){var it=bank[stage][q],correct=it[1][0],opts=[correct,it[1][1],it[1][2],it[1][3]];$('qmeta').textContent=topics[stage][1]+' • ข้อ '+(q+1)+'/5';$('qtitle').textContent='ด่าน '+(stage+1);$('qtext').textContent=it[0];$('feedback').textContent='';$('options').innerHTML='';opts.forEach(function(o,i){var b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+o;b.onclick=function(){answer(i===0)};$('options').appendChild(b)})}
+function answer(ok){document.querySelectorAll('.option').forEach(function(b){b.disabled=true});if(ok){var key=stage+'-'+q;if(!state.ans[key]){state.ans[key]=1;state.score+=10}$('feedback').innerHTML='<span class="good">✅ ถูกต้อง! +10 XP</span>';if(q===4){if(state.done.indexOf(stage)<0)state.done.push(stage);save();render();setTimeout(function(){$('qtext').textContent=stage===14?'🎉 พิชิตครบทั้ง 15 ด่านแล้ว!':'🎉 ผ่านด่าน '+(stage+1)+' สำเร็จ!';$('options').innerHTML=''},500)}else{save();render();setTimeout(function(){q++;showQuestion()},500)}}else{state.life=Math.max(0,state.life-1);$('feedback').innerHTML='<span class="bad">❌ ยังไม่ถูก ลองอ่านบทเรียนแล้วตอบใหม่</span>';save();render()}}
+function tab(id){document.querySelectorAll('.page').forEach(function(p){p.classList.add('hidden')});$(id).classList.remove('hidden');document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active')});document.querySelector('[data-open="'+id+'"]').classList.add('active')}
+function chat(e){e.preventDefault();var v=$('chatInput').value.trim();if(!v)return;var d=document.createElement('div');d.className='msg';d.innerHTML='<b>'+esc(state.name||'ผู้เล่น')+':</b> '+esc(v);$('messages').appendChild(d);$('chatInput').value=''}
+load();$('start').onclick=start;$('name').onkeydown=function(e){if(e.key==='Enter')start()};document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){tab(b.getAttribute('data-open'))}});$('back').onclick=function(){$('quiz').classList.add('hidden')};$('chatForm').onsubmit=chat;render();
+})();
 </script></body></html>
