@@ -40,25 +40,7 @@
     <button class="btn" id="restartGame">🔄 เริ่มเกมใหม่</button>
   </div>
 </div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded, query, limitToLast } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
-window.firebaseChat={initialize:function(config){
-  var app=initializeApp(config);
-  var db=getDatabase(app);
-  var chatRef=query(ref(db,"thaiKingdomChat/messages"),limitToLast(100));
-  onChildAdded(chatRef,function(s){
-    var m=s.val(); if(!m)return;
-    var box=document.getElementById("messages");
-    if(box.querySelector('[data-chat-id="'+s.key+'"]'))return;
-    var d=document.createElement("div"); d.className="msg"; d.setAttribute("data-chat-id",s.key);
-    var b=document.createElement("b"); b.textContent=m.name||"ผู้เล่น";
-    d.appendChild(b); d.appendChild(document.createTextNode(": "+(m.text||"")));
-    box.appendChild(d); box.scrollTop=box.scrollHeight;
-  });
-  window.firebaseChat.send=function(name,text){return push(ref(db,"thaiKingdomChat/messages"),{name:name||"ผู้เล่น",text:text,time:Date.now()})};
-}};
-</script>
+
 <script>
 (function(){
 var topics=[['🔤','พยัญชนะไทย'],['🔊','เสียงพยัญชนะ'],['🎨','อักษรสามหมู่'],['🌈','จำแนกอักษร'],['🟢','คำเป็น'],['🔴','คำตาย'],['🎯','มาตราตัวสะกด'],['🧩','พยัญชนะวรรค'],['🗣️','ตำแหน่งเกิดเสียง'],['🪄','เศษวรรค'],['🛡️','ตัวสะกดตรงมาตรา'],['⚔️','ตัวสะกดไม่ตรงมาตรา'],['⭐','อักษรที่ไม่ใช้เป็นตัวสะกด'],['🧠','วิเคราะห์คำ'],['👑','บอสใหญ่ภาษาไทย']];
@@ -149,8 +131,10 @@ function tab(id){
   if(id==='magic'){renderMagic()}
   if(id==='world'){setTimeout(positionPlayer,50)}
 }
+function appendChatMessage(name,text){var d=document.createElement('div');d.className='msg';d.textContent=name+': '+text;$('messages').appendChild(d);$('messages').scrollTop=$('messages').scrollHeight}
+function loadChatHistory(){var history=JSON.parse(localStorage.getItem('thaiKingdomChat')||'[]');history.forEach(function(m){appendChatMessage(m.name||'ผู้เล่น',m.text||'')})}
 function sound(type){try{var C=window.AudioContext||window.webkitAudioContext;if(!C)return;var c=new C(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);var f=type==='good'?660:type==='bad'?180:type==='win'?880:520;o.frequency.value=f;o.type=type==='bad'?'sawtooth':'sine';g.gain.setValueAtTime(.001,c.currentTime);g.gain.exponentialRampToValueAtTime(.12,c.currentTime+.02);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);o.start();o.stop(c.currentTime+.24)}catch(e){}}
 function sparkle(){var box=$('celebrate');for(var i=0;i<12;i++){var s=document.createElement('span');s.className='particle';s.textContent=['✨','⭐','🪙','🎉'][Math.floor(Math.random()*4)];s.style.left=(20+Math.random()*60)+'%';s.style.top=(15+Math.random()*20)+'%';box.appendChild(s);setTimeout(function(){box.innerHTML=''},1300)}}
-$('start').onclick=start;$('restartGame').onclick=restartGame;$('name').onkeydown=function(e){if(e.key==='Enter')start()};document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){tab(b.getAttribute('data-open'))}});$('back').onclick=function(){$('quiz').classList.add('hidden');tab('world')};$('chatForm').onsubmit=function(e){e.preventDefault();var v=$('chatInput').value.trim();if(!v)return;if(window.firebaseChat&&window.firebaseChat.send){window.firebaseChat.send(state.name||'ผู้เล่น',v).catch(function(){alert('ไม่สามารถส่งข้อความได้ กรุณาตรวจสอบ Firebase')})}else{var d=document.createElement('div');d.className='msg';d.textContent=(state.name||'ผู้เล่น')+': '+v;$('messages').appendChild(d)}$('chatInput').value=''};window.onresize=positionPlayer;state={name:'',score:0,coins:0,life:5,done:[],ans:{}};prepareQuestions();render();
+$('start').onclick=start;$('restartGame').onclick=restartGame;$('name').onkeydown=function(e){if(e.key==='Enter')start()};document.querySelectorAll('.tab').forEach(function(b){b.onclick=function(){tab(b.getAttribute('data-open'))}});$('back').onclick=function(){$('quiz').classList.add('hidden');tab('world')};$('chatForm').onsubmit=function(e){e.preventDefault();var v=$('chatInput').value.trim();if(!v)return;var name=state.name||'ผู้เล่น';var history=JSON.parse(localStorage.getItem('thaiKingdomChat')||'[]');history.push({name:name,text:v});if(history.length>100)history=history.slice(-100);localStorage.setItem('thaiKingdomChat',JSON.stringify(history));appendChatMessage(name,v);$('chatInput').value=''};window.onresize=positionPlayer;state={name:'',score:0,coins:0,life:5,done:[],ans:{}};prepareQuestions();render();loadChatHistory();
 })();
 </script></body></html>
